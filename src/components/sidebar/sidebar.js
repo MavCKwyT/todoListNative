@@ -1,7 +1,7 @@
-import "./header.css";
+import "./sidebar.css";
 
-const header = () => {
-  const path = "./src/components/header/header.html";
+const sidebar = () => {
+  const path = "./src/components/sidebar/sidebar.html";
   fetch(path)
     .then(response => {
       return response.text();
@@ -10,4 +10,4 @@ const header = () => {
     });
 };
 
-export default header();
+export default sidebar();

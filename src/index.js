@@ -1,2 +1,2 @@
 import "./index.css";
-import "./components/header/header";
+import "./components/sidebar/sidebar";
