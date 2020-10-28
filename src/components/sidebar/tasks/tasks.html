@@ -1,9 +1,19 @@
 <div class="sidebar-tasks__header">
     <span class="sidebar-tasks__header-name">Tasks</span>
-    <img class="sidebar-tasks__add-task-button" src="src/assets/img/plus.svg">
+    <img class="sidebar-tasks__add-task-button" id="sidebar-tasks__add-task-button"
+         src="src/assets/img/plus.svg">
     <div class="sidebar-tasks__tasks">
         <div class="sidebar-tasks__task-lists" id="sidebar-tasks__task-lists">
-
+            <div class="sidebar-tasks__modal_hidden" id="sidebar-tasks__modal_hidden">
+                <div class="sidebar-tasks__modal">
+                    <div class="sidebar-tasks__modal-header">
+                        <div class="sidebar-tasks__modal-header-wrapper">
+                            <div class="sidebar-tasks__modal-header-name"  contenteditable="true">Untitled</div>
+                        </div>
+                        <button>Add task</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

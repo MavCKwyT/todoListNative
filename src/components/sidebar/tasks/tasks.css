@@ -1,0 +1,31 @@
+.sidebar-tasks__add-task-button {
+    cursor: pointer;
+}
+
+.sidebar-tasks__modal {
+    position: absolute;
+    top: 20%;
+    left: 35%;
+    width: 700px;
+    height: 700px;
+    background: white;
+}
+.sidebar-tasks__modal_hidden {
+    position:fixed;
+    height:100%;
+    width:100%;
+    left:0;
+    top:0;
+    background:rgba(0,0,0,0.5);
+    display: none;
+}
+
+.sidebar-tasks__modal-header-name {
+    margin-left: 15%;
+    margin-right: 20%;
+    margin-top: 30px;
+}
+
+.sidebar-tasks__modal-header-wrapper {
+}
+
