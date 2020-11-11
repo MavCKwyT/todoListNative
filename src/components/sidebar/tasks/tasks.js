@@ -27,10 +27,14 @@ export function task() {
 }
 task();
 
-const openModal = () => {
-  const modalWindow = document.getElementById("sidebar-tasks__modal_hidden");
-  const addTaskButton = document.getElementById("sidebar-tasks__add-task-button");
+const modalWindow = document.querySelector("#sidebar-tasks__modal_hidden");
+const addTaskButton = document.querySelector("#sidebar-tasks__add-task-button");
+const toAddTaskButton = document.querySelector("#sidebar-tasks__to-add-task-button");
+const closeButton = document.querySelector("#close");
+const taskHeaderName = document.querySelector("#sidebar-tasks__modal-header-name");
+const notStartedTasks = document.querySelector("#board__not-started-tasks");
 
+const openModal = () => {
   addTaskButton.addEventListener("click", () => {
     if (!modalWindow.style.display || modalWindow.style.display === "none") {
       modalWindow.style.display = "block";
@@ -39,12 +43,10 @@ const openModal = () => {
     }
   });
 };
+
 openModal();
 
 export const closeModal = () => {
-  const modalWindow = document.getElementById("sidebar-tasks__modal_hidden");
-  const closeButton = document.getElementById("close");
-
   closeButton.addEventListener("click", () => {
     if (modalWindow.style.display || modalWindow.style.display !== "none") {
       modalWindow.style.display = "none";
@@ -53,26 +55,40 @@ export const closeModal = () => {
     }
   });
 };
+
 closeModal();
 
-const addTask = () => {
-  const addedTaskHTML = `
-<div>
-    <h2 id="taskHeader"></h2>
-</div>
+let arrOfTasks = [];
+
+const displayTasks = () => {
+  let addedTaskHTML = "";
+  arrOfTasks.forEach((item, index) => {
+    addedTaskHTML += `
+        <div class="task" id="${index}">
+            <h2>${item.taskName}</h2>
+        </div>
 `;
+    notStartedTasks.innerHTML = addedTaskHTML;
+  });
+};
 
-  const toAddTaskButton = document.getElementById("sidebar-tasks__to-add-task-button");
-  const modalWindow = document.getElementById("sidebar-tasks__modal_hidden");
-  let taskName;
+if (localStorage.getItem("taskList")) {
+  arrOfTasks = JSON.parse(localStorage.getItem("taskList"));
+  displayTasks();
+}
 
+const addingTask = () => {
   toAddTaskButton.addEventListener("click", () => {
-    document.getElementById("todo-main-frame").innerHTML = addedTaskHTML;
-    taskName = document.getElementById("sidebar-tasks__modal-header-name").textContent;
-    document.getElementById("taskHeader").innerText = taskName;
+    let newTaskProp = {
+      taskName: taskHeaderName.textContent
+    };
+    arrOfTasks.push(newTaskProp);
     if (modalWindow.style.display || modalWindow.style.display !== "none") {
       modalWindow.style.display = "none";
     }
+    displayTasks();
+    localStorage.setItem("taskList", JSON.stringify(arrOfTasks));
   });
 };
-addTask();
+
+addingTask();

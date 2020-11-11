@@ -29,3 +29,8 @@
 .sidebar-tasks__modal-header-wrapper {
 }
 
+.task {
+    border: 2px solid black;
+    width:  100px;
+}
+
