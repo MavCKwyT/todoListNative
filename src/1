@@ -1,0 +1,12 @@
+Input for creating tasks //done
+checkboxes for tasks //done
+delete button for tasks //done
+Styles //done
+delete tasks from local storage
+color customization
+Auth
+Can't create task with empty taskname
+base for done and deleted tasks
+
+Thoughts
+1. Сделаем через background-image когда будем писать на React. Чтобы сейчас не тратить время на поиск решения с js

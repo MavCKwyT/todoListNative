@@ -6,6 +6,9 @@
   font-family: -apple-system, system-ui, sans-serif;
 }
 
+::-webkit-scrollbar {
+  width: 1px;
+}
 
 
 

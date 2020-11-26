@@ -1,74 +1,59 @@
 import "./tasks.css";
-const taskHTML = `<div class="sidebar-tasks__header">
-    <span class="sidebar-tasks__header-name">Tasks</span>
-    <img class="sidebar-tasks__add-task-button" id="sidebar-tasks__add-task-button"
-         src="src/assets/img/plus.svg">
-    <div class="sidebar-tasks__tasks">
-        <div class="sidebar-tasks__task-lists" id="sidebar-tasks__task-lists">
-            <div class="sidebar-tasks__modal_hidden" id="sidebar-tasks__modal_hidden">
-                <div class="sidebar-tasks__modal">
-                    <div class="sidebar-tasks__modal-header">
-                        <div class="sidebar-tasks__modal-header-wrapper">
-                            <div class="sidebar-tasks__modal-header-name" id="sidebar-tasks__modal-header-name"
-                              contenteditable="true">Untitled</div>
-                        </div>
-                         <span id="close">X</span>
-                        <button id="sidebar-tasks__to-add-task-button">Add task</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+import { createElem } from "../../../functions/createElem";
+
+const taskHTML = `
+<form class="taskContainer__form" id="taskContainer__form">
+    <div class="taskContainer__formWrapper">
+        <input
+            placeholder="What is in your mind?"
+            onfocus="this.placeholder = ''" 
+            onblur="this.placeholder = 'What is in your mind?'" 
+            class="taskContainer__addTaskInput" id="taskContainer__addTaskInput">
+        <button class="taskContainer__addTaskButton" id="taskContainer__addTaskButton">Add</button>
     </div>
+</form>
+<div class="taskContainer__tasks" id="taskContainer__tasks">
+     
 </div>
 `;
 
 export function task() {
-  document.getElementById("sidebar__tasks-container").innerHTML = taskHTML;
+  createElem(["div", "taskContainer", "taskContainer", "mainFrame"], taskHTML);
 }
 task();
 
-const modalWindow = document.querySelector("#sidebar-tasks__modal_hidden");
-const addTaskButton = document.querySelector("#sidebar-tasks__add-task-button");
-const toAddTaskButton = document.querySelector("#sidebar-tasks__to-add-task-button");
-const closeButton = document.querySelector("#close");
-const taskHeaderName = document.querySelector("#sidebar-tasks__modal-header-name");
-const notStartedTasks = document.querySelector("#board__not-started-tasks");
-
-const openModal = () => {
-  addTaskButton.addEventListener("click", () => {
-    if (!modalWindow.style.display || modalWindow.style.display === "none") {
-      modalWindow.style.display = "block";
-    } else {
-      modalWindow.style.display = "none";
-    }
-  });
-};
-
-openModal();
-
-export const closeModal = () => {
-  closeButton.addEventListener("click", () => {
-    if (modalWindow.style.display || modalWindow.style.display !== "none") {
-      modalWindow.style.display = "none";
-    } else {
-      modalWindow.style.display = "block";
-    }
-  });
-};
-
-closeModal();
+const addTaskButton = document.querySelector("#taskContainer__addTaskButton");
+const taskName = document.querySelector("#taskContainer__addTaskInput");
+const tasksContainer = document.querySelector("#taskContainer__tasks");
 
 let arrOfTasks = [];
+
+const addingTask = () => {
+  addTaskButton.addEventListener("click", () => {
+    let newTaskProp = {
+      taskName: taskName.value
+    };
+    arrOfTasks.push(newTaskProp);
+    localStorage.setItem("taskList", JSON.stringify(arrOfTasks));
+    displayTasks();
+  });
+};
 
 const displayTasks = () => {
   let addedTaskHTML = "";
   arrOfTasks.forEach((item, index) => {
     addedTaskHTML += `
-        <div class="task" id="${index}">
-            <h2>${item.taskName}</h2>
-        </div>
-`;
-    notStartedTasks.innerHTML = addedTaskHTML;
+        <div class="task" draggable="true" id='item_${index}'> 
+            <div class="taskHeaderWrapper">
+                <span class="taskHeaderWrapper__taskText">${item.taskName}</span>
+            </div>
+            <div class="task_Container__buttonsWrapper">
+                    <button class="doneButton" id="doneButton">Done</button>
+                    <button class="deleteButton" id="deleteButton">Delete</button>
+            </div>
+         </div>
+`;// method uses CSS3 selectors for querying the DOM and CSS3 doesn't support ID selectors that start with a digit:
+    tasksContainer.innerHTML = addedTaskHTML;
   });
 };
 
@@ -77,18 +62,21 @@ if (localStorage.getItem("taskList")) {
   displayTasks();
 }
 
-const addingTask = () => {
-  toAddTaskButton.addEventListener("click", () => {
-    let newTaskProp = {
-      taskName: taskHeaderName.textContent
-    };
-    arrOfTasks.push(newTaskProp);
-    if (modalWindow.style.display || modalWindow.style.display !== "none") {
-      modalWindow.style.display = "none";
-    }
-    displayTasks();
-    localStorage.setItem("taskList", JSON.stringify(arrOfTasks));
+addingTask();
+
+const deleteButton = document.querySelectorAll("#deleteButton");
+
+const deleteTask = () => {
+  deleteButton.forEach((item)=> {
+    item.addEventListener("click", () => {
+      let copyOfArrOfTasks = JSON.parse(localStorage.getItem("taskList"));
+      const indexOfDeleteButton = Array.from(deleteButton).indexOf(item);
+      console.log(indexOfDeleteButton);
+      // copyOfArrOfTasks.splice(indexOfDeleteButton, 1);
+      // localStorage.setItem("taskList", JSON.stringify(copyOfArrOfTasks));
+      // item.closest(".task").remove();
+    });
   });
 };
 
-addingTask();
+deleteTask();
