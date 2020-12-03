@@ -9,60 +9,36 @@
     background-color: #856eaa;
     height: 160px;
     min-width: 375px;
-;
 }
 
 .taskContainer__formWrapper {
     display: flex;
     justify-content: space-between;
     padding: 30px;
-
 }
 
 .taskContainer__addTaskButton {
-    border-radius: 30px;
+    border-radius: 12px;
     background: linear-gradient(145deg, #c685e8, #5bcedc);
     box-shadow:  0 0 1px #9e63c2, 0 0 4px #22867f;
 }
 
 .taskContainer__addTaskButton:active {
-    border-radius: 50px;
+    border-radius: 12px;
     background: linear-gradient(145deg, #c481e5, #65ddea);
     box-shadow:  inset 0 0 1px #9e63c2, inset 0 0 4px #22867f;
 }
 
 input {
-    height: 30px;
-    border-radius: 15px;
+    height: 35px;
+    border-radius: 12px;
 }
 
 button {
     border: none;
-    height: 30px;
+    height: 35px;
     width: 55px;
     font-size: 12px;
-}
-
-.doneButton {
-    background: linear-gradient(145deg, #ded2d2, #7ae074);
-    box-shadow:  6px 6px 20px #a8a8a8, -5px -5px 25px #ffffff;
-    border-radius: 12px;
-}
-
-.doneButton:active {
-    background: linear-gradient(145deg, #06e009, #5dc955);
-    box-shadow: inset 6px 6px 20px #a8a8a8, inset -5px -5px 25px #ffffff;
-}
-
-.deleteButton {
-    background: linear-gradient(145deg, #d4cabc, #c28175);
-    box-shadow:  6px 6px 20px #c5c2c2, -5px -5px 25px #f1eeee;
-    border-radius: 12px;
-}
-
-.deleteButton:active {
-    background: linear-gradient(145deg, #b48868, #d9a096);
-    box-shadow:  6px 6px 20px #c5c2c2, -5px -5px 25px #f1eeee;
 }
 
 .taskContainer__addTaskInput {
@@ -76,6 +52,25 @@ button {
     flex-direction: column;
     gap: 15px;
     margin-bottom: 40px;
+}
+
+.task_Container__buttonsWrapper {
+    border-radius: 12px;
+    background: #e7e7e7;
+    box-shadow:  5px 5px 15px #c6c6c6, -5px -5px 10px #ffffff;
+}
+
+.task_Container__buttonsWrapper:active {
+    border-radius: 12px;
+    background: linear-gradient(145deg, #c481e5, #65ddea);
+    box-shadow:  inset 0 0 1px #9e63c2, inset 0 0 4px #22867f;
+}
+
+.deleteImg {
+    width: 30px;
+    margin-top: 20px;
+    margin-left: 14px;
+    margin-right: 10px;
 }
 
 .task {
@@ -97,15 +92,10 @@ button {
     box-shadow:  8px 8px 5px rgba(119, 167, 139, 0.32), -9px -9px 15px #e5e5e5;
 }
 
-
-
 .task_Container__buttonsWrapper {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
-
-
-
 
 

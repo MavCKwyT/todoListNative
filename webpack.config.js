@@ -4,10 +4,10 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const LiveReloadPlugin = require("webpack-livereload-plugin");
 
 module.exports = {
-  entry: path.resolve(__dirname, "./src"),
+  entry: path.resolve(__dirname, "./public/src"),
   output: {
-    path: path.resolve(__dirname, "/bundle"),
-    filename: "bundle.js"
+    path: path.resolve(__dirname, "build"),
+    filename: "build.js"
   },
   devServer: {
     watchContentBase: true,
@@ -18,11 +18,11 @@ module.exports = {
       appendScriptTag: true
     }),
     new MiniCssExtractPlugin({
-      template: "./src/index.css",
+      template: "./public/src/index.css",
       filename: "bundle.css"
     }),
     new HtmlWebpackPlugin({
-      template: "./src/index.html"
+      template: "./public/src/index.html"
     })
   ],
   module: {
