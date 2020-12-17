@@ -1,4 +1,11 @@
 import "./index.css";
 import "./components/mainWrapper/mainWrapper";
 import "./components/mainFrame/mainFrame";
-import "./components/sidebar/tasks/tasks";
+import "./components/header/header";
+import "./components/commonTasksContainer/commonTasksContaier";
+// import "./functions/router/routes";
+import "./components/tasks/tasks";
+import "./components/headerIconsWrapper/headerIconsWrapper";
+import "./components/completedTasksIcon/completedTasksIcon";
+import "./components/activeTasksIcon/activeTasksIcon";
+import "./functions/router/routes";

@@ -1,50 +1,95 @@
-.taskContainer {
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  outline: none;
+  font-family: -apple-system, system-ui, sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 1px;
+}
+
+
+
+
+.mainWrapper {
     display: flex;
-    flex-direction: column;
-    gap: 20px;
-
+    margin-top: 40px;
+    width:  375px;
+    height: 812px;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 40px;
+    background: linear-gradient(145deg, #e3e3e3, #f6f6f6);
+    box-shadow:  20px 20px 20px #b8b8b8, -7px -7px 14px #fafafa;
 }
 
-.taskContainer__form {
+
+.mainFrame {
+    margin-bottom: 30px;
+    border-radius: 40px;
+    overflow: scroll;
+}
+
+
+
+.header {
+    height: 200px;
     background-color: #856eaa;
-    height: 160px;
-    min-width: 375px;
 }
 
-.taskContainer__formWrapper {
+.form {
     display: flex;
     justify-content: space-between;
-    padding: 30px;
+    height: 110px;
+    width: 375px;
 }
 
-.taskContainer__addTaskButton {
+.form__addTaskInput {
+    text-align: center;
+    width: 240px;
+    border: none;
+    margin-left: 30px;
+}
+
+.form__addTaskButton {
     border-radius: 12px;
     background: linear-gradient(145deg, #c685e8, #5bcedc);
     box-shadow:  0 0 1px #9e63c2, 0 0 4px #22867f;
+    margin-right: 30px;
+
 }
 
-.taskContainer__addTaskButton:active {
+.form__addTaskButton:active {
     border-radius: 12px;
     background: linear-gradient(145deg, #c481e5, #65ddea);
     box-shadow:  inset 0 0 1px #9e63c2, inset 0 0 4px #22867f;
 }
 
 input {
+    margin-top: 35px;
     height: 35px;
     border-radius: 12px;
 }
 
 button {
+    margin-top: 35px;
     border: none;
     height: 35px;
     width: 55px;
     font-size: 12px;
 }
 
-.taskContainer__addTaskInput {
-    text-align: center;
-    width: 240px;
-    border: none;
+
+.taskContainer {
+    margin-top: 35px;
+}
+
+.taskContainer__inputWrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
 }
 
 .taskContainer__tasks {
@@ -99,3 +144,18 @@ button {
 }
 
 
+
+.completedTasks {
+}
+
+.completedTasksContainerImg {
+    width: 35px;
+
+}
+.activeTasks {
+}
+
+.activeTasksContainerImg {
+    width: 35px;
+
+}

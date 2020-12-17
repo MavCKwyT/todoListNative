@@ -7,11 +7,13 @@ module.exports = {
   entry: path.resolve(__dirname, "./public/src"),
   output: {
     path: path.resolve(__dirname, "build"),
-    filename: "build.js"
+    filename: "build.js",
+    publicPath: "/"
   },
   devServer: {
     watchContentBase: true,
-    open: true
+    open: true,
+    historyApiFallback: true
   },
   plugins: [
     new LiveReloadPlugin({

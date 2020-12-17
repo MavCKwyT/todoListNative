@@ -8,4 +8,5 @@ const mainFrameHTML = `
 export function mainFrame() {
   createElem(["main", "mainFrame", "mainFrame", "mainWrapper"], mainFrameHTML);
 }
+
 mainFrame();

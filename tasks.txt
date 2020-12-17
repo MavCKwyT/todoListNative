@@ -1,0 +1,16 @@
+Read:
+1. about callback
+2. about "this"
+3. about async await
+4. about objects
+
+
+TODO:
+1. Router!
+2. LocalStorage
+3. restyle "AddBtn"
+4. createTasks
+5. DisplayTasks
+6. DeleteTasks
+7. Refactor "CreateElem func" from arr to obj
+8. 404 page
