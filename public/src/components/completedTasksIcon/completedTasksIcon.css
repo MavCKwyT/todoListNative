@@ -4,5 +4,8 @@
 
 .completedTasksContainerImg {
     width: 35px;
+}
 
+.completedTasksIconContainer:hover {
+   cursor: pointer;
 }

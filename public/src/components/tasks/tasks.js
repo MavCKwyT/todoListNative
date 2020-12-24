@@ -38,7 +38,7 @@ export const addTask = () => {
   const addBtn = document.getElementById("form__addTaskButton");
   const taskName = document.getElementById("form__addTaskInput");
 
-  addBtn.addEventListener("click", function (event) {
+  addBtn.addEventListener("click", function () {
     arrOfActiveTasks.push(taskProps(taskName.value));
     updateLocalStorage(localStorageKeyOfActiveTasks, arrOfActiveTasks);
   });
@@ -55,11 +55,12 @@ export const displayTasks = () => {
                   <span class="taskHeaderWrapper__taskText">${el.taskName}</span>
               </div>
               <div class="task_Container__buttonsWrapper">
-                  <div class="task_Container__completeTaskButton">
-                      <input
-                      class="task_Container__completeTaskButton__checkbox"
-                      id="task_Container__completeTaskButton__checkbox"
-                      type="checkbox">
+                  <img class="taskContainer__checkIcon" src="../../../../../check.png">
+                    <div class="task_Container__completeTaskButton">
+                        <input
+                        class="task_Container__completeTaskButton__checkbox"
+                        id="task_Container__completeTaskButton__checkbox"
+                        type="checkbox">
                   </div>
               </div>
            </div>
@@ -76,14 +77,6 @@ export const displayTasks = () => {
           <div class="task"  id='item_${index}'>
               <div class="taskHeaderWrapper">
                   <span class="taskHeaderWrapper__taskText">${el.taskName}</span>
-              </div>
-              <div class="task_Container__buttonsWrapper">
-                  <div class="task_Container__completeTaskButton">
-                      <input
-                      class="task_Container__completeTaskButton__checkbox"
-                      id="task_Container__completeTaskButton__checkbox"
-                      type="checkbox">
-                  </div>
               </div>
            </div>
 `;

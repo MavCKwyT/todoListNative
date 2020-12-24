@@ -6,3 +6,8 @@
 .activeTasksContainerImg {
     width: 31px;
 }
+
+.activeTasksIcon:hover {
+    cursor: pointer;
+
+}

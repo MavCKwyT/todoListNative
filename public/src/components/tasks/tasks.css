@@ -20,8 +20,8 @@
 .task_Container__completeTaskButton__checkbox {
     appearance: none;
     width: 50px;
-    height: 50px;
-    margin-top: 1px;
+    height: 75px;
+    margin-top: -80px;
 }
 
 .task_Container__buttonsWrapper {
@@ -29,6 +29,12 @@
     border-radius: 12px;
     background: #e7e7e7;
     box-shadow:  5px 5px 15px #c6c6c6, -5px -5px 10px #ffffff;
+}
+
+.taskContainer__checkIcon {
+    width: 40px;
+    margin-top: 12px;
+    margin-left: 5px;
 }
 
 .task_Container__buttonsWrapper:active {
@@ -39,7 +45,7 @@
 
 .task {
     display: flex;
-    height: 70px;
+    height: 60px;
     gap: 20px;
     justify-content: space-between;
     margin-left: 20px;
@@ -48,7 +54,6 @@
 
 .taskHeaderWrapper {
     overflow-y: scroll;
-    overflow-x: hidden;
     width:  375px;
     padding: 15px;
     border-radius: 12px;
