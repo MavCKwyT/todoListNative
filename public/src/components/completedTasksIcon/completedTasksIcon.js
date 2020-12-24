@@ -1,5 +1,6 @@
 import "./completedTasksIcon.css";
 import { createElem } from "../../functions/createElem";
+import { displayTasks } from "../tasks/tasks";
 
 const completedTasksIconHTML = `
     <div class="completedTasksIcon" id="completedTasksIcon">
@@ -18,5 +19,6 @@ export function completedTasksIcon() {
     ],
     completedTasksIconHTML
   );
+  const a = document.querySelector(".completedTasksContainerImg");
 }
 completedTasksIcon();

@@ -6,7 +6,7 @@ Read:
 
 
 TODO:
-1. Router!
+1. Router //done
 2. LocalStorage
 3. restyle "AddBtn"
 4. createTasks
@@ -14,3 +14,4 @@ TODO:
 6. DeleteTasks
 7. Refactor "CreateElem func" from arr to obj
 8. 404 page
+9. back forward browser btn

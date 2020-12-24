@@ -6,10 +6,22 @@
 
 }
 
+.completedTasksContainer {
+    margin-top: 30px;
+}
+
 .activeTasksContainer {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    margin-top: 30px;
+}
+
+.task_Container__completeTaskButton__checkbox {
+    appearance: none;
+    width: 50px;
+    height: 50px;
+    margin-top: 1px;
 }
 
 .task_Container__buttonsWrapper {

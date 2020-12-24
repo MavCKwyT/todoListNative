@@ -8,12 +8,3 @@ export const createElem = (elemProperty, elemHTML) => {
 
   document.getElementById(targetId).append(tagName);
 };
-
-//     <form>
-//     <label>Username</label>
-//     <input type="text">
-//     <label>Password</label>
-//     <input type="password">
-//     <button type="submit">sign up</button>
-// </form>
-// </div>

@@ -1,8 +1,10 @@
 import { activeTasksContainerHTML } from "../../components/activeTasksContainer/activeTasksContainer";
 import { completedTasksContainerHTML } from "../../components/completedTasksContainer/completedTasksContainer";
+import {
+  addTask, changeTaskStatus, displayTasks
+} from "../../components/tasks/tasks";
+import { activeTasksPage, completedTasksPage } from "../../constants/pagePaths";
 
-const activeTasksPage = "/activeTasks";
-const completedTasksPage = "/completedTasks";
 let targetContainer = document.querySelector("#commonTasksContainer");
 
 const pushState = (state, url) => {
@@ -11,6 +13,9 @@ const pushState = (state, url) => {
 };
 
 switch (window.location.pathname) {
+case !activeTasksPage && completedTasksPage:
+  alert("404 error");
+  break;
 case activeTasksPage:
   pushState(activeTasksContainerHTML, activeTasksPage);
   break;
@@ -21,48 +26,22 @@ default:
   window.location.pathname = activeTasksPage;
 }
 
-window.onload = function retrieveFromHistory() {
+window.onload = function () {
   const activeTasksBtn = document.getElementById("activeTasksIcon");
   const completedTasksBtn = document.getElementById("completedTasksIcon");
 
   activeTasksBtn.addEventListener("click", function () {
     pushState(activeTasksContainerHTML, activeTasksPage);
     targetContainer.innerHTML = window.history.state;
+    window.location.reload();
   });
   completedTasksBtn.addEventListener("click", function () {
     pushState(completedTasksContainerHTML, completedTasksPage);
     targetContainer.innerHTML = window.history.state;
+    window.location.reload();
   });
 };
 
-// if (!window.location.hash) {
-//   window.location.hash = "/activeTasks";
-// }
-//
-// const getRoute = (route) => {
-//   switch (route) {
-//   case "#/activeTasks":
-//     return activeTasksContainer();
-//   case "#/completedTasks":
-//     return completedTasksContainer();
-//   default:
-//     return "LOL";
-//   }
-// };
-//
-// window.addEventListener("hashchange", ()=> {
-//   getRoute(window.location.hash);
-// });
-// getRoute(window.location.hash);
-
-// if (window.location.pathname !== activeTasksPage && window.location.pathname !== completedTasksPage) {
-//   window.location.pathname = activeTasksPage;
-// }
-//
-// if (window.location.pathname === activeTasksPage) {
-//   pushState(activeTasksContainerHTML, activeTasksPage);
-// }
-//
-// if (window.location.pathname === completedTasksPage) {
-//   pushState(completedTasksContainerHTML, completedTasksPage);
-// }
+displayTasks();
+addTask();
+changeTaskStatus();
