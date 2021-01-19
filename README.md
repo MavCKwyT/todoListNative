@@ -1,4 +1,3 @@
 # todoListNative
-Create a todo app using only native HTML, JavaScript, CSS, as possible as i can
+Create a todo app using only native HTML, JavaScript, CSS, as possible as i can. The main purpose was to learn native js before starting the study React.js
 
-1123
